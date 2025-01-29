@@ -1,6 +1,6 @@
 # Send-Offline-Notification-In-Android
 Send Offline Notification In Android By Java
-
+On Create(){
 //>>This Method Call in On create() or app startup 
 private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -78,3 +78,6 @@ requestPermissionLauncher = registerForActivityResult(
                     }
                 }
         );
+
+
+}
