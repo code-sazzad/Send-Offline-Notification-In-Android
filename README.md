@@ -1,5 +1,10 @@
 # Send-Offline-Notification-In-Android
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
 
+hhh
+
+    }
 On Create(){
 //>>This Method Call in On create() or app startup 
 private void createNotificationChannel() {
