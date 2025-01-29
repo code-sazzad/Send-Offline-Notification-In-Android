@@ -1,5 +1,5 @@
 # Send-Offline-Notification-In-Android
-Send Offline Notification In Android By Java
+
 On Create(){
 //>>This Method Call in On create() or app startup 
 private void createNotificationChannel() {
