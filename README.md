@@ -1,13 +1,9 @@
-# Send-Offline-Notification-In-Android
-@Override
-    protected void onCreate(Bundle savedInstanceState) {
+#Send-Offline-Notification-In-Android
 
-hhh
 
-    }
-On Create(){
-//>>This Method Call in On create() or app startup 
-private void createNotificationChannel() {
+    //This Method Call in On create() or app startup 
+    private void createNotificationChannel(){
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channelId = "1";
             CharSequence channelName = "Offline Notifications";
@@ -19,13 +15,12 @@ private void createNotificationChannel() {
 
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
-        }
+    //This Method Call in On create() or app startup 
     }
-
-
-
-//>>Create Notification and send By Button
- private void sendOfflineNotification() {
+    
+    // Button clicked to send Notification
+     private void sendOfflineNotification(){
+ 
         // Intent to open an activity when the notification is clicked
         Intent intent = new Intent(this, MainActivity2.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -44,16 +39,21 @@ private void createNotificationChannel() {
         // Show the notification
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, builder.build());
+
+
     }
 
 
-//>> Notification Send By Schedule or other condition
-     private void scheduleNotification(long triggerTime) {
+    //Notification Send By Schedule or other condition
+     private void scheduleNotification(long triggerTime){
+     
         Intent intent = new Intent(this, NotificationReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+        //Notification Send By Schedule or other condition
+        
     }
 
     //Notification permission check
@@ -68,12 +68,13 @@ private void createNotificationChannel() {
         }
     }
 
-//>>Variable diclaration
+     //Variable diclaration
+     //oncreate function
         private ActivityResultLauncher<String> requestPermissionLauncher;
 
-        //>>This is Request permission Launcher
-        //>>This code write On create or other Method call by on create()
-requestPermissionLauncher = registerForActivityResult(
+         //>>This is Request permission Launcher
+         //>>This code write On create or other Method call by on create()
+         requestPermissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
                     if (isGranted) {
@@ -82,7 +83,7 @@ requestPermissionLauncher = registerForActivityResult(
                         Toast.makeText(this, "Notification permission denied!", Toast.LENGTH_SHORT).show();
                     }
                 }
-        );
+           );
 
 
-}
+      }
